@@ -16,13 +16,16 @@
       </thead>
       <tbody>
         <% @order_total = 0 %>
-        <% cart.each do |product_id, details| %>
-          <%= render 'item', product_id: product_id, details: details %>
+        <% @order.line_items.each do |line_item| %>
+          <%= render 'item', line_item: line_item %>
         <% end %>
       </tbody>
       <tfoot>
         <tr>
-          <th colspan="4">
+          <th colspan="2">
+            e-mail: <%= current_user.email %>
+          </th>
+          <th colspan="2">
             TOTAL:
           </th>
           <th>
@@ -34,9 +37,9 @@
   </div>
 
 
-  <div class="order-summary jumbotron">
+  <!-- <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
-  </div>
+  </div> -->
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
