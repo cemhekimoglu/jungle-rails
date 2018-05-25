@@ -4,6 +4,7 @@
     <h1>My Cart</h1>
   </header>
 
+  <% if cart.length > 0 %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -48,6 +49,13 @@
         </script>
       <% end %>
     </div>
+
+    <% else %>
+      <div>
+        <h2> Looks like your card is empty! </h2>
+        <h3> If you would like to go back to shopping <%=link_to 'Click Here', '/'%> </h3>
+      </div>
+    <% end %>
   </div>
 
 </section>
