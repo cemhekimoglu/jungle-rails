@@ -1,7 +1,5 @@
 
 <% if product = Product %>
-  <%= item_total = line_item.product.price * line_item.quantity %>
-  <% @order_total += item_total %>
 
   <tr>
     <td>
@@ -19,7 +17,9 @@
       <%= line_item.quantity %>
     </td>
     <td>
-      <%= item_total %>
+      <%= item_total = line_item.product.price * line_item.quantity %>
     </td>
   </tr>
-  <% end %>
+  <% @order_total += item_total %>
+
+<% end %>
